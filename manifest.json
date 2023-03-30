@@ -2,7 +2,7 @@
   "action": {
     "default_popup": "index.html"
   },
-  "description": "TaskTamer: the intuitive to-do app to help you achieve your goals. Create, organize, set reminders, and track progress. Stay focused and in control.",
+  "description": "TaskTamer: the intuitive to-do app to help you achieve your goals. Stay focused and in control.",
   "icons": {
     "128": "src/assets/128.png"
   },
