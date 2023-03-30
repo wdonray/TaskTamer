@@ -2,8 +2,10 @@
   "action": {
     "default_popup": "index.html"
   },
-  "description": "TaskTamer is a powerful and intuitive to-do application designed to help you tame your daily tasks and achieve your goals. With TaskTamer, you can easily create and organize your to-do lists, set due dates and reminders, and track your progress in a simple and elegant interface. Whether you're managing personal projects or collaborating with a team, TaskTamer has everything you need to stay organized, focused, and in control. Say goodbye to chaos and hello to productivity with TaskTamer.",
-  "icons": { "128": "src/assets/128.png" },
+  "description": "TaskTamer: the intuitive to-do app to help you achieve your goals. Create, organize, set reminders, and track progress. Stay focused and in control.",
+  "icons": {
+    "128": "src/assets/128.png"
+  },
   "manifest_version": 3,
   "name": "TaskTamer",
   "version": "1.0.0"
