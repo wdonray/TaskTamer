@@ -1,0 +1,28 @@
+{
+  "name": "tasktamer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.15",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.59.3",
+    "vite": "^4.2.0"
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "main": "vite.config.js",
+  "author": "Donray Williams",
+  "license": "MIT"
+}

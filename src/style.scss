@@ -1,0 +1,149 @@
+@import "~bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+* {
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+}
+
+body {
+  background-color: #222c3a;
+  color: white;
+}
+
+.btn-link {
+  color: white;
+  text-underline-offset: 0.125rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    text-decoration: underline #1a98ff solid 2px;
+  }
+}
+
+.flex-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 382px;
+}
+
+.logo {
+  width: 36px;
+  height: auto;
+}
+
+.main {
+  padding: 1rem 2rem;
+  flex-grow: 1;
+}
+
+.footer {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-group {
+  background-color: whitesmoke;
+  border-radius: 3px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.list-item {
+  background-color: transparent;
+  font-weight: 400;
+  transition: font-weight 0.3s ease;
+
+  &:hover {
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.list-group-item {
+  transition: height 0.3s ease-in;
+}
+
+.navigate-btn {
+  color: #1a98ff;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.5s;
+}
+
+.slide-down-enter,
+.slide-down-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+@keyframes slow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.slow-bounce {
+  animation: slow-bounce 2s ease-in-out infinite;
+}
+
+label {
+  color: #333;
+  font-size: smaller;
+  font-weight: 500;
+  border-radius: 10px;
+}
