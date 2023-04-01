@@ -15,9 +15,7 @@
         <i class="bi bi-chevron-left"></i>
       </button>
     </div>
-
     <h2>{{ pageName }}</h2>
-
     <div>
       <div class="d-flex justify-content-between align-items-center">
         <b>Task</b>
@@ -30,7 +28,6 @@
         </button>
       </div>
       <hr class="mt-1" />
-
       <div class="input-wrapper">
         <input
           type="text"
@@ -38,7 +35,6 @@
           aria-describedby="task-name-help"
           v-model="task.name"
           placeholder="New Task"
-          :maxlength="24"
           autocomplete="off"
         />
         <span class="border"></span>
@@ -46,30 +42,28 @@
         <span class="border"></span>
         <span class="border"></span>
       </div>
-
       <ul class="list-group list-group-flush">
         <span v-if="!tasks.length" class="text-body mx-auto mt-4 d-flex">
           <div class="slow-bounce"><i class="bi bi-arrow-up"></i></div>
           No task found, create some.
           <div class="slow-bounce"><i class="bi bi-arrow-up"></i></div>
         </span>
-
         <li
           v-else
           v-for="t in tasks"
           class="list-group-item d-flex flex-column"
         >
-          <div class="d-flex align-items-center gap-3">
+          <div class="content align-items-center gap-2">
             <input
-              class="form-check-input m-0"
+              class="form-check-input m-0 checkbox"
               type="checkbox"
               v-model="t.completed"
               @change="updateFolder"
             />
 
-            <div class="list-item me-4" @click="() => handleTaskClick(t)">
+            <div class="list-item" @click="() => handleTaskClick(t)">
               <span
-                :class="`fs-6 user-select-none ${
+                :class="`user-select-none ${
                   (t.completed && 'text-decoration-line-through opacity-50') ||
                   (selected?.id == t.id && !t.completed && 'fw-bold')
                 }`"
@@ -77,27 +71,28 @@
                 {{ t.name }}
               </span>
             </div>
-
-            <div v-if="t.date" class="flex-fill ms-5">
-              <span
-                class="text-white bg-dark fw-bold p-1 text-center rounded date"
-              >
-                {{ addOneDay(new Date(t.date)).toLocaleDateString("en-US") }}
-              </span>
-            </div>
-
             <Transition name="fade" mode="out-in">
               <button
                 v-if="editMode"
                 type="button"
-                class="btn btn-link text-danger btn-sm p-0"
+                class="btn btn-link text-danger btn-sm p-0 trash-can"
                 @click="() => deleteTask(t)"
               >
                 <i class="bi bi-trash3"></i>
               </button>
             </Transition>
           </div>
-
+          <div v-if="t.date" class="ms-auto">
+            <span
+              :class="
+                (t.completed && 'text-decoration-line-through opacity-50') ||
+                (new Date(t.date) < new Date() && 'text-danger')
+              "
+              class="fw-bold p-1 text-center rounded date"
+            >
+              {{ addOneDay(new Date(t.date)).toLocaleDateString("en-US") }}
+            </span>
+          </div>
           <div v-if="selected?.id == t.id" class="task-edit-area mt-2">
             <button
               type="button"
@@ -123,7 +118,6 @@
           </div>
         </li>
       </ul>
-
       <button type="submit" class="d-none"></button>
     </div>
   </form>
@@ -309,8 +303,8 @@ loadTasks();
 }
 
 .task-edit-area .btn {
+  font-size: 12px;
   color: black;
-  font-size: small;
   padding: 0;
   text-align: start;
 }
@@ -321,5 +315,23 @@ loadTasks();
 
 .date {
   font-size: 10px;
+}
+
+.content {
+  font-size: 12px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 0.1fr;
+}
+
+.trash-can {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.checkbox {
+  cursor: pointer;
 }
 </style>
