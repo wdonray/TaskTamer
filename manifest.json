@@ -2,11 +2,22 @@
   "action": {
     "default_popup": "index.html"
   },
+  "content_scripts": [
+    {
+      "js": ["/src/main.js", "inject.js"],
+      "matches": [
+        "https://developer.chrome.com/extensions",
+        "https://*/*",
+        "http://*/*"
+      ]
+    }
+  ],
   "description": "TaskTamer: the intuitive to-do app to help you achieve your goals. Stay focused and in control.",
   "icons": {
     "128": "src/assets/128.png"
   },
   "manifest_version": 3,
   "name": "TaskTamer",
+  "permissions": ["storage"],
   "version": "1.0.0"
 }
